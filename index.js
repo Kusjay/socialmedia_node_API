@@ -7,6 +7,10 @@ const morgan = require('morgan');
 
 dotenv.config();
 
-app.listen(8080, () => {
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
+  console.log('Connected to MongoDB');
+});
+
+app.listen(8800, () => {
   console.log('Backend server is running!');
 });
